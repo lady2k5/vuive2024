@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="loader.css"> <!-- Thêm tệp CSS cho hiệu ứng loader -->
+</head>
+<body>
+
+<div id="loader"></div> <!-- Di chuyển phần loader ra ngoài form -->
+<form id="login-form" class="form">
+    <div class="form-title"><span>sign in to your</span></div>
+    <div class="title-2"><span>SPACE</span></div>
+    <div class="input-container">
+        <input class="input-mail" type="email" placeholder="Enter email">
+        <span> </span>
+    </div>
+
+    <section class="bg-stars">
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+    </section>
+
+    <div class="input-container">
+        <input class="input-pwd" type="password" placeholder="Enter password">
+    </div>
+    <button type="button" class="submit" onclick="showLoader()"> <!-- Sử dụng type="button" để ngăn chặn gửi biểu mẫu -->
+        <span class="sign-text">Sign in</span>
+    </button>
+
+    <p class="signup-link">
+        No account?
+        <a href="signup.html" class="up" onclick="showLoader()">Sign up!</a> <!-- Gọi hàm showLoader() khi nhấp vào liên kết -->
+    </p>
+</form>
+
+<script>
+    function showLoader() {
+        var loader = document.getElementById("loader");
+        var loginForm = document.getElementById("login-form");
+        loader.style.display = "block"; // Hiển thị loader
+        loginForm.style.display = "none"; // Ẩn biểu mẫu đăng nhập
+
+        // Chuyển hướng sang trang index.html
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

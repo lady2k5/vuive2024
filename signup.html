@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="loader.css"> <!-- Thêm tệp CSS cho hiệu ứng loader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- Kết nối đến thư viện jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Kết nối đến thư viện SweetAlert2 -->
+</head>
+<body>
+
+<div id="loader"></div> <!-- Di chuyển phần loader ra ngoài form -->
+
+<form class="form" id="signup-form">
+    <p class="title">Register</p>
+    <p class="message">Signup now and get full access to our app.</p>
+    <div class="flex">
+        <label>
+            <input required="" placeholder="" type="text" class="input">
+            <span>Firstname</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" type="text" class="input">
+            <span>Lastname</span>
+        </label>
+    </div>
+
+    <label>
+        <input required="" placeholder="" type="email" class="input">
+        <span>Email</span>
+    </label>
+
+    <label>
+        <input required="" placeholder="" type="password" class="input">
+        <span>Password</span>
+    </label>
+    <label>
+        <input required="" placeholder="" type="password" class="input">
+        <span>Confirm password</span>
+    </label>
+    <button type="submit" class="submit" onclick="showLoader(event)">Submit</button>
+    <p class="signin">Already have an account? <a href="#">Sign in</a></p>
+</form>
+
+<script>
+    function showLoader(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của nút Submit
+        var loader = $("#loader"); // Sử dụng jQuery để lấy phần tử loader
+        var signupForm = $("#signup-form");
+        
+        loader.show(); // Hiển thị loader
+        signupForm.hide(); // Ẩn biểu mẫu đăng ký
+
+        // Mô phỏng xử lý đăng ký thành công hoặc không thành công
+        setTimeout(function() {
+            // Giả sử đăng ký thành công
+            // Hiển thị thông báo và chuyển hướng sau 5 giây
+            Swal.fire({
+                icon: 'success',
+                title: 'Signup successful!',
+                showConfirmButton: false,
+                timer: 2000 // Tự động đóng sau 2 giây
+            }).then((result) => {
+                window.location.href = "login.html";
+            });
+        }, 5000);
+    }
+</script>
+
+</body>
+</html>
